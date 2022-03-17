@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Actor } from "../../types";
-
+import {StyledActorItem, StyledItemImg} from "./ActorItem.styles"
 type Props = {
 	actor: Actor;
 };
@@ -11,13 +11,13 @@ const ActorItem: React.FC<Props> = ({ actor }) => {
 		setLike(true);
 	};
 	return (
-		<div className="actor-item" style={{ marginBottom: "1rem" }}>
-			<img src={actor.image} alt={actor.name} style={{ width: "200px" }} />
+		<StyledActorItem selected={like}>
+			<StyledItemImg src={actor.image} alt={actor.name}  />
 			<div>Name: {actor.name}</div>
 			<div>Surname: {actor.surname}</div>
 			<div>Date of Birth: {actor.dateOfBirth}</div>
 			<button onClick={likeClick}>{like ? "Liked" : "Neutral"}</button>
-		</div>
+		</StyledActorItem>
 	);
 };
 

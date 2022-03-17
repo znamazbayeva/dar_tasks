@@ -1,0 +1,13 @@
+.actorList {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.actorListItem {
+    margin-right: 5px;
+    &:last-child{
+        margin-right: 0;
+    }
+}
