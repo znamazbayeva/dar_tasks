@@ -1,17 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import ActorsList from "../../components/actorsList/ActorsList";
 import MoviesList from "../../components/moviesList/MoviesList";
 import { movies, actors } from "../../mock";
+import { Movie } from "../../types";
+import "./Main.scss"
 
 const Main = () => {
+	const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
+
+	const movieClickHandler = (v: Movie) => {
+		setSelectedMovie(v);
+	};
 	return (
-		<div style={{ display: "flex", justifyContent: "space-around" }}>
-			<div>
-				<h2>Movies ({movies.length})</h2>
-				<MoviesList movies={movies} />
+		<div className="MainPage">
+			<div className="element">
+				<h2 className="header">Movies ({movies.length})</h2>
+				<MoviesList selectedId={selectedMovie?.id} onMovieClick={movieClickHandler}  movies={movies}  />
 			</div>
-			<div>
-				<h2>Actors</h2>
+			<div className="element">
+				<h2 className="header">Actors</h2>
 				<ActorsList actors={actors} />
 			</div>
 		</div>
