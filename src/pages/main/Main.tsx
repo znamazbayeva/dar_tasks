@@ -2,14 +2,18 @@ import React, { useState } from "react";
 import ActorsList from "../../components/actorsList/ActorsList";
 import MoviesList from "../../components/moviesList/MoviesList";
 import { movies, actors } from "../../mock";
-import { Movie } from "../../types";
+import { Actor, Movie } from "../../types";
 import "./Main.scss"
 
 const Main = () => {
 	const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
+	const [selectedActor, setSelectedActor] = useState<Actor | null>(null);
 
 	const movieClickHandler = (v: Movie) => {
 		setSelectedMovie(v);
+	};
+	const actorClickHandler = (v: Actor) => {
+		setSelectedActor(v);
 	};
 	return (
 		<div className="MainPage">
@@ -19,7 +23,7 @@ const Main = () => {
 			</div>
 			<div className="element">
 				<h2 className="header">Actors</h2>
-				<ActorsList actors={actors} />
+				<ActorsList  selectedId={selectedActor?.id} onActorClick={actorClickHandler}   actors={actors} />
 			</div>
 		</div>
 	);

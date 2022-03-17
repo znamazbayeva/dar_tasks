@@ -29,10 +29,10 @@ const MovieItem: React.FC<Props> = ({
   return (
     <StyledMovieItem selected={isSelected}>
       <div onClick={() => onItemClick(movie)}>
-      <StyledItemImg src={movie.image} alt={movie.title} />
-      <div>{movie.title}</div>
-      <div>{movie.description}</div>
-      <div>{movie.duration / 60} hours</div>
+        <StyledItemImg src={movie.image} alt={movie.title} />
+        <div>{movie.title}</div>
+        <div>{movie.description}</div>
+        <div>{movie.duration / 60} hours</div>
       </div>
 
       <button onClick={watchLaterClick}>
